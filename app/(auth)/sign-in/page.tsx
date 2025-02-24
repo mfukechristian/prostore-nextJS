@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-
+import CredentialsSignInForm from "./credentials-signin-form";
 import { auth } from "@/auth";
 import {
   Card,
@@ -36,7 +36,9 @@ const SignIn = () => {
             Select a method to sign in to your account
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">{/* FORM HERE */}</CardContent>
+        <CardContent className="space-y-4">
+          <CredentialsSignInForm />
+        </CardContent>
       </Card>
     </div>
   );
