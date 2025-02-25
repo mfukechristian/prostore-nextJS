@@ -16,15 +16,19 @@ import { APP_NAME } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Sign In",
 };
+const SignIn = async (props: {
+  searchParams: Promise<{
+    callbackUrl: string;
+  }>;
+}) => {
+  const { callbackUrl } = await props.searchParams;
 
-const SignIn = async () => {
   const session = await auth();
 
-  console.log(session);
-
   if (session) {
-    return redirect("/");
+    return redirect(callbackUrl || "/");
   }
+
   return (
     <div className="w-full max-w-md mx-auto">
       <Card>
